@@ -9,6 +9,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
 
+//En el documento no mencionaban los campos auditables, como es buena practica tenerlos los agregue.
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
 public class AuditEntity {

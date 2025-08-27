@@ -9,6 +9,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
+//En el documento no mencionaban los campos auditables, como son buenas practicas los agregue.
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
 public abstract class AuditableEntity<PK extends Serializable> {

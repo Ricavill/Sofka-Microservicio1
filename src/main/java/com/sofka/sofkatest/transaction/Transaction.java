@@ -16,7 +16,6 @@ import java.time.LocalDateTime;
 @DynamicUpdate
 public class Transaction extends AuditableEntity<Long> {
 
-    private LocalDateTime timestamp;
     private TransactionType transactionType;
     private BigDecimal value;
     private BigDecimal balance;
@@ -24,13 +23,6 @@ public class Transaction extends AuditableEntity<Long> {
     public Transaction() {
     }
 
-    public LocalDateTime getTimestamp() {
-        return timestamp;
-    }
-
-    public void setTimestamp(LocalDateTime timestamp) {
-        this.timestamp = timestamp;
-    }
 
     public TransactionType getTransactionType() {
         return transactionType;
