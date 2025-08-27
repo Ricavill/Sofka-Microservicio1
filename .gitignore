@@ -1,27 +1,15 @@
-target/
+#Graddle
+.gradle/
+build/
+out/
 
-### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
+# Gradle wrapper JAR (optional)
+gradle/wrapper/gradle-wrapper.jar
 
-### IntelliJ IDEA ###
-.idea
-*.iws
+# IntelliJ
+.idea/
 *.iml
-*.ipr
 
-### Graddle
-gradle
-.gradle
-settings.gradle
-gradlew
-gradlew.bat
-build.gradle
 
-### Other
+#Other
 HELP.md
-build
