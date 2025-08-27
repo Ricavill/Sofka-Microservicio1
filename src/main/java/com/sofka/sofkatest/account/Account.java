@@ -1,9 +1,18 @@
 package com.sofka.sofkatest.account;
 
 import com.sofka.sofkatest.auditing.AuditableEntity;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EntityListeners;
+import jakarta.persistence.Table;
+import org.hibernate.annotations.DynamicUpdate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.math.BigDecimal;
 
+@Entity
+@Table(name = "account")
+@EntityListeners(AuditingEntityListener.class)
+@DynamicUpdate
 public class Account extends AuditableEntity<Long> {
     private String accountNumber;
 
