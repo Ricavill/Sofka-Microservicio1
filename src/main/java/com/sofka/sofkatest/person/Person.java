@@ -1,7 +1,16 @@
 package com.sofka.sofkatest.person;
 
 import com.sofka.sofkatest.auditing.AuditableEntity;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EntityListeners;
+import jakarta.persistence.Table;
+import org.hibernate.annotations.DynamicUpdate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+@Entity
+@Table(name = "person")
+@EntityListeners(AuditingEntityListener.class)
+@DynamicUpdate
 public class Person extends AuditableEntity<Long> {
     private String name;
     private PersonGender gender;
