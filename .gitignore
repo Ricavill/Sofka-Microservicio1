@@ -1,0 +1,27 @@
+target/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### Graddle
+gradle
+.gradle
+settings.gradle
+gradlew
+gradlew.bat
+build.gradle
+
+### Other
+HELP.md
+build
