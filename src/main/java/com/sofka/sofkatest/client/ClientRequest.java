@@ -1,33 +1,17 @@
-package com.sofka.sofkatest.person;
+package com.sofka.sofkatest.client;
 
-import com.sofka.sofkatest.auditing.AuditableEntity;
-import com.sofka.sofkatest.client.ClientRequest;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EntityListeners;
-import jakarta.persistence.Table;
-import org.hibernate.annotations.DynamicUpdate;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import com.sofka.sofkatest.person.PersonGender;
 
-@Entity
-@Table(name = "person")
-@EntityListeners(AuditingEntityListener.class)
-@DynamicUpdate
-public class Person extends AuditableEntity<Long> {
+//Se crea request aparte para temas sensibles como password y para datos que no se usan como status
+public class ClientRequest {
     private String name;
     private PersonGender gender;
+    private String password;
     private int age;
     private String identification;
     private String telephone;
 
-    public Person() {
-
-    }
-    public Person(ClientRequest clientRequest) {
-        this.name = clientRequest.getName();
-        this.gender = clientRequest.getGender();
-        this.age = clientRequest.getAge();
-        this.identification = clientRequest.getIdentification();
-        this.telephone = clientRequest.getTelephone();
+    public ClientRequest() {
     }
 
     public String getName() {
@@ -44,6 +28,14 @@ public class Person extends AuditableEntity<Long> {
 
     public void setGender(PersonGender gender) {
         this.gender = gender;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public int getAge() {

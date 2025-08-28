@@ -1,7 +1,8 @@
 package com.sofka.sofkatest.client;
 
+import com.sofka.sofkatest.commons.PasswordUtils;
+import com.sofka.sofkatest.commons.Status;
 import com.sofka.sofkatest.person.Person;
-import com.sofka.sofkatest.shared.Status;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
@@ -26,5 +27,8 @@ public class Client extends Person {
     //Usualmente se toma 0 como inactivo y 1 como activo, pero prefiero ser especifico.
     private Status status;
 
-
+    public Client(ClientRequest clientRequest) {
+        super(clientRequest);
+        this.password = PasswordUtils.hash(clientRequest.getPassword());
+    }
 }

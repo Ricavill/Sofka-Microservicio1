@@ -12,4 +12,5 @@ gradle/wrapper/gradle-wrapper.jar
 
 
 #Other
+.env
 HELP.md
