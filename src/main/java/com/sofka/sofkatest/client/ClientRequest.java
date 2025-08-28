@@ -1,6 +1,5 @@
 package com.sofka.sofkatest.client;
 
-import com.sofka.sofkatest.client.validator.OnCreate;
 import com.sofka.sofkatest.person.PersonGender;
 import jakarta.validation.constraints.NotNull;
 
@@ -8,17 +7,28 @@ import jakarta.validation.constraints.NotNull;
 public class ClientRequest {
     @NotNull
     private String name;
+
+    @NotNull
+    private String username;
+
     @NotNull
     private PersonGender gender;
+
     @NotNull
     private String password;
+
     @NotNull
     private int age;
+
     @NotNull
     private String identification;
+
     @NotNull
     private String telephone;
+
     @NotNull
+    private String address;
+
     private String hashedPassword;
 
 
@@ -31,6 +41,14 @@ public class ClientRequest {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public PersonGender getGender() {
@@ -71,6 +89,14 @@ public class ClientRequest {
 
     public void setTelephone(String telephone) {
         this.telephone = telephone;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getHashedPassword() {

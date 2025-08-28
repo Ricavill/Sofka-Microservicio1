@@ -18,12 +18,13 @@ public abstract class AuditableEntity<PK extends Serializable> {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected PK id;
 
-    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     @CreatedDate
-    protected LocalDateTime created;
+    @Column(name = "created_at", updatable = false)
+    protected LocalDateTime createdAt;
 
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     @LastModifiedDate
+    @Column(name = "updated_at")
     protected LocalDateTime updatedAt;
 
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
@@ -37,12 +38,12 @@ public abstract class AuditableEntity<PK extends Serializable> {
         this.id = id;
     }
 
-    public LocalDateTime getCreated() {
-        return created;
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
     }
 
-    public void setCreated(LocalDateTime created) {
-        this.created = created;
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
     }
 
     public LocalDateTime getUpdatedAt() {

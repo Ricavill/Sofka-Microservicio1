@@ -1,10 +1,7 @@
 package com.sofka.sofkatest.client;
 
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("clientes")
@@ -14,6 +11,11 @@ public class ClientController {
 
     public ClientController(ClientService clientService) {
         this.clientService = clientService;
+    }
+
+    @GetMapping("/{id}")
+    public Client getClient(@PathVariable Long id) {
+        return this.clientService.getClientById(id);
     }
 
     @PostMapping

@@ -1,6 +1,7 @@
 package com.sofka.sofkatest.client;
 
 import com.sofka.sofkatest.shared.commons.PasswordUtils;
+import com.sofka.sofkatest.shared.config.exceptions.EntityNotFoundException;
 import com.sofka.sofkatest.shared.config.exceptions.ValidationException;
 import com.sofka.sofkatest.shared.config.security.SecurityProperties;
 import org.springframework.stereotype.Service;
@@ -16,9 +17,12 @@ public class ClientService {
         this.securityProperties = securityProperties;
     }
 
+    public Client getClientById(Long id) {
+        return this.clientRepository.findClientById(id).orElseThrow(() -> new EntityNotFoundException("Client with id " + id + " not found"));
+    }
+
     public Client getClientByNameAndPassword(ClientRequest clientRequest) {
-        String hashedPassword = PasswordUtils.hash(clientRequest.getPassword(), securityProperties.getBcryptStrength());
-        return this.clientRepository.findClientByNameAndHashedPassword(clientRequest.getName(), hashedPassword)
+        return this.clientRepository.findClientByUsername(clientRequest.getUsername())
                 .orElse(null);
     }
 
@@ -27,8 +31,9 @@ public class ClientService {
         if (client != null) {
             throw new ValidationException("Client already exists.");
         }
-
+        String hashedPassword = PasswordUtils.hash(clientRequest.getPassword(), securityProperties.getBcryptStrength());
         client = new Client(clientRequest);
+        client.setPassword(hashedPassword);
         clientRepository.save(client);
         return client;
     }
