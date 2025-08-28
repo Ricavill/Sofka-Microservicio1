@@ -1,6 +1,5 @@
-package com.sofka.sofkatest.commons;
+package com.sofka.sofkatest.shared.commons;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
@@ -16,5 +15,11 @@ public class PasswordUtils {
         return passwordEncoder.encode(password);
     }
 
+    public static boolean matches(CharSequence rawPassword, String encodedPassword) {
+        return matches(rawPassword.toString(), encodedPassword, 10);
+    }
 
+    public static boolean matches(CharSequence rawPassword, String encodedPassword, int strength) {
+        return new BCryptPasswordEncoder(strength).matches(rawPassword, encodedPassword);
+    }
 }

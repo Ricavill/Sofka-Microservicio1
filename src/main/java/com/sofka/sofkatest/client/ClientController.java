@@ -1,5 +1,6 @@
 package com.sofka.sofkatest.client;
 
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,7 +17,7 @@ public class ClientController {
     }
 
     @PostMapping
-    public Client createClient(@RequestBody ClientRequest clientRequest) {
+    public Client createClient(@RequestBody @Validated ClientRequest clientRequest) {
         return this.clientService.createClient(clientRequest);
     }
 

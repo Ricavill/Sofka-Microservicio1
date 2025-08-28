@@ -1,15 +1,26 @@
 package com.sofka.sofkatest.client;
 
+import com.sofka.sofkatest.client.validator.OnCreate;
 import com.sofka.sofkatest.person.PersonGender;
+import jakarta.validation.constraints.NotNull;
 
 //Se crea request aparte para temas sensibles como password y para datos que no se usan como status
 public class ClientRequest {
+    @NotNull
     private String name;
+    @NotNull
     private PersonGender gender;
+    @NotNull
     private String password;
+    @NotNull
     private int age;
+    @NotNull
     private String identification;
+    @NotNull
     private String telephone;
+    @NotNull
+    private String hashedPassword;
+
 
     public ClientRequest() {
     }
@@ -60,5 +71,13 @@ public class ClientRequest {
 
     public void setTelephone(String telephone) {
         this.telephone = telephone;
+    }
+
+    public String getHashedPassword() {
+        return hashedPassword;
+    }
+
+    public void setHashedPassword(String hashedPassword) {
+        this.hashedPassword = hashedPassword;
     }
 }

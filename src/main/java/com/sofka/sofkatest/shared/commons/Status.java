@@ -1,4 +1,4 @@
-package com.sofka.sofkatest.commons;
+package com.sofka.sofkatest.shared.commons;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
