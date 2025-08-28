@@ -6,6 +6,8 @@ import com.sofka.sofkatest.shared.config.exceptions.ValidationException;
 import com.sofka.sofkatest.shared.config.security.SecurityProperties;
 import org.springframework.stereotype.Service;
 
+import java.util.Map;
+
 @Service
 public class ClientService {
 
@@ -18,7 +20,7 @@ public class ClientService {
     }
 
     public Client getClientById(Long id) {
-        return this.clientRepository.findClientById(id).orElseThrow(() -> new EntityNotFoundException("Client with id " + id + " not found"));
+        return this.clientRepository.findClientById(id).orElseThrow(() -> new EntityNotFoundException(Client.class, Map.of("id", id)));
     }
 
     public Client getClientByNameAndPassword(ClientRequest clientRequest) {

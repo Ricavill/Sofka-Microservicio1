@@ -11,19 +11,20 @@ public class EntityNotFoundException extends AppException {
         super(message, STATUS, null);
     }
 
+
     public EntityNotFoundException(String code, Object... args) {
         super("Entity Not Found", STATUS, code, args);
     }
 
     public EntityNotFoundException(Class<?> entityClass, Map<String, Object> fieldValues) {
         super(notFoundMessage(entityClass, fieldValues), STATUS,
-                "NotFounException.message", entityClass.getName(), fieldValues);
+                "NotFoundException", entityClass.getName(), fieldValues);
     }
 
     private static String notFoundMessage(Class<?> entityClass, Map<String, Object> fieldValues) {
         StringBuilder sb = new StringBuilder();
         sb.append("Not found entity ")
-                .append(entityClass.getName())
+                .append(entityClass.getSimpleName())
                 .append(" with ");
 
         String fields = fieldValues.entrySet().stream()
