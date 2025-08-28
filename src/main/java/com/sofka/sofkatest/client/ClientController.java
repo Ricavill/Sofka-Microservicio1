@@ -16,8 +16,8 @@ public class ClientController {
     }
 
     @PostMapping
-    public Client createClient(@RequestBody Client client) {
-        return null;
+    public Client createClient(@RequestBody ClientRequest clientRequest) {
+        return this.clientService.createClient(clientRequest);
     }
 
 

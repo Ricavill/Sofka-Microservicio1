@@ -13,4 +13,11 @@ public class ClientService {
         this.clientRepository = clientRepository;
     }
 
+    public Client createClient(ClientRequest clientRequest) {
+        //todo Agregar validación de creación
+        Client client = new Client(clientRequest);
+        clientRepository.save(client);
+        return client;
+    }
+
 }
