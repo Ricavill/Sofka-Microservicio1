@@ -43,7 +43,7 @@ public class JWTService {
                 .setIssuer(issuer)
                 .setIssuedAt(Date.from(now))
                 .setExpiration(Date.from(now.plus(expirationMinutes, ChronoUnit.MINUTES)))
-                .signWith(privateKey, SignatureAlgorithm.RS256) // <-- RS256
+                .signWith(privateKey, SignatureAlgorithm.RS256)
                 .compact();
     }
 
