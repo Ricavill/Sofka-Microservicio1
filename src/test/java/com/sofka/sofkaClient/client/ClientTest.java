@@ -1,12 +1,13 @@
-package com.example.sofkatest.client;
+package com.sofka.sofkaClient.client;
 
 import com.sofka.sofkaClient.client.Client;
 import com.sofka.sofkaClient.client.ClientRequest;
 import com.sofka.sofkaClient.shared.commons.Status;
+import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
 public class ClientTest {
 
     private Client newClient(String username, String hashed) {
