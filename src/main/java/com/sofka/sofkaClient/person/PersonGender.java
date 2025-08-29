@@ -1,24 +1,24 @@
-package com.sofka.sofkatest.transaction;
+package com.sofka.sofkaClient.person;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 import java.util.Arrays;
 
-public enum TransactionType {
-    WITHDRAW(1), DEPOSIT(2);
+public enum PersonGender {
+    MALE(1), FEMALE(2), OTHER(3);
 
     private final int code;
 
-    TransactionType(int code) {
+    PersonGender(int code) {
         this.code = code;
     }
 
     @JsonCreator
-    public static TransactionType forCode(int code) {
+    public static PersonGender forCode(int code) {
         return Arrays.stream(values())
                 .filter(e -> e.getCode() == code)
-                .findFirst().orElseThrow(() -> new IllegalArgumentException("Invalid TransactionType code: " + code));
+                .findFirst().orElseThrow(() -> new IllegalArgumentException("Invalid Status code: " + code));
     }
 
     @JsonValue
