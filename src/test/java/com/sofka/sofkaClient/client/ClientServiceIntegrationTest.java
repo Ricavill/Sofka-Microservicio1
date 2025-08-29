@@ -1,5 +1,6 @@
 package com.sofka.sofkaClient.client;
 
+import com.sofka.sofkaClient.SofkaTestApplication;
 import com.sofka.sofkaClient.person.PersonGender;
 import com.sofka.sofkaClient.shared.commons.PasswordUtils;
 import com.sofka.sofkaClient.shared.commons.Status;
@@ -14,7 +15,6 @@ import org.springframework.transaction.annotation.Transactional;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
-@ActiveProfiles("test")
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.ANY)
 @Transactional
 public class ClientServiceIntegrationTest {
