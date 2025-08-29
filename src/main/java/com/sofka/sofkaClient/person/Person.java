@@ -95,13 +95,4 @@ public class Person extends AuditableEntity<Long> {
         this.telephone = telephone;
     }
 
-    public static Map<String, Object> toPersonData(Person person) {
-        Map<String, Object> data = new HashMap<>();
-        data.put("name", person.getName());
-        data.put("gender", person.getGender());
-        data.put("age", person.getAge());
-        data.put("identification", person.getIdentification());
-        data.put("telephone", person.getTelephone());
-        return data;
-    }
 }

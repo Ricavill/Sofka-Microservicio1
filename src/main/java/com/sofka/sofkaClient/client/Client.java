@@ -13,6 +13,7 @@ import jakarta.validation.constraints.Size;
 import org.hibernate.annotations.DynamicUpdate;
 import org.springframework.beans.BeanUtils;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Stream;
 
@@ -75,8 +76,10 @@ public class Client extends Person implements Cloneable {
     }
 
     public static Map<String, Object> toUserData(Client client) {
-        Map<String, Object> data = Client.toPersonData(client);
+        Map<String, Object> data = new HashMap<>();
+        data.put("id", client.getId());
         data.put("username", client.getUsername());
+        data.put("identification", client.getIdentification());
         data.put("status", client.getStatus());
         return data;
     }

@@ -5,7 +5,7 @@ import org.springframework.http.HttpStatus;
 import java.util.List;
 
 public class ValidationException extends AppException {
-    private static final HttpStatus STATUS = HttpStatus.CONFLICT;
+    private static final HttpStatus STATUS = HttpStatus.BAD_REQUEST;
     protected List<Object> errors;
 
 
