@@ -1,6 +1,7 @@
 package com.sofka.sofkaClient.client;
 
 import com.sofka.sofkaClient.person.PersonGender;
+import com.sofka.sofkaClient.shared.commons.Status;
 import jakarta.validation.constraints.NotNull;
 
 //Se crea request aparte para temas sensibles como password y para datos que no se usan como status
@@ -30,6 +31,8 @@ public class ClientRequest {
     private String address;
 
     private String hashedPassword;
+
+    private Status status;
 
 
     public ClientRequest() {
@@ -105,5 +108,13 @@ public class ClientRequest {
 
     public void setHashedPassword(String hashedPassword) {
         this.hashedPassword = hashedPassword;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
     }
 }
